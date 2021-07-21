@@ -9,7 +9,7 @@ import com.example.exceptions.InvalidCredentialsException;
 import com.example.models.User;
 import com.example.services.AccountService;
 import com.example.services.UserService;
-
+import com.example.models.Account;
 public class BankDriver {
 	
 	private static UserDao uDao = new UserDaoDB();
@@ -97,24 +97,51 @@ public class BankDriver {
 								//Check account balance
 								System.out.println("What account would you like to check balance for?");
 								int checkBalance = in.nextInt();
-								
-								System.out.println("Your balance in account " + checkBalance + " is $" + x );
+								//placeholder for getBalance
+					
+								System.out.println("Your balance in account " + checkBalance + " is $500"  );
 								break;
 							case 3:
 								System.out.println("Please specify deposit amount & account:");
 								System.out.println("Deposit:");
-								int deposit = in.nextInt();
+								int d = in.nextInt();
 								System.out.println("Account:");
 								int depAccount = in.nextInt();
-								System.out.println("Thank you for your deposit of $" + deposit + " into account " + depAccount);
 								//Make deposit
+							
+							try {
+								int md;
+								md = Account.deposit(d);
+								System.out.println("Thank you for your deposit of $" + d + " into account " + depAccount);
+								System.out.println("New balance: " + md );
+							} catch (Exception e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+								
 								break;
 							case 4:
 								//Make withdrawal
 								System.out.println("Please specify withdrawal amount & account:");
 								System.out.println("Withdrawal amount:");
-								int withdrawal = in.nextInt();
+								int w = in.nextInt();
 								System.out.println("Account:");
+								int withAccount = in.nextInt();
+							int wd;
+							try {
+								wd = Account.withdrawal(w);
+								if(wd<0) {
+									System.out.println("Invalid transaction");
+									break;
+								}
+								else {
+									System.out.println("Thank you for making a withdrawal of $" + w + " from account " + withAccount);
+								}
+							} catch (Exception e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+								
 								
 
 								break;

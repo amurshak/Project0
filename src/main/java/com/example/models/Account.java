@@ -6,7 +6,7 @@ public class Account {
 	
 	private int userId;
 	private int accountNum;
-	private int balance;
+	private static int balance;
 
 	public Account() {
 	} 
@@ -18,7 +18,15 @@ public class Account {
 		
 	}
 
-
+	public static int deposit(int x) {
+		int y = getBalance();
+		return x+y;
+	}
+	
+	public static int withdrawal(int z) {
+		int w = getBalance();
+		return w-z;
+	}
 
 	public int getUserId() {
 		return userId;
@@ -44,7 +52,7 @@ public class Account {
 
 
 
-	public int getBalance() {
+	public static int getBalance() {
 		return balance;
 	}
 
