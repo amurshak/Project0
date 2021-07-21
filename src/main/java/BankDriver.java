@@ -95,15 +95,27 @@ public class BankDriver {
 								
 							case 2:
 								//Check account balance
+								System.out.println("What account would you like to check balance for?");
+								int checkBalance = in.nextInt();
+								
+								System.out.println("Your balance in account " + checkBalance + " is $" + x );
 								break;
 							case 3:
 								System.out.println("Please specify deposit amount & account:");
-								
+								System.out.println("Deposit:");
+								int deposit = in.nextInt();
+								System.out.println("Account:");
+								int depAccount = in.nextInt();
+								System.out.println("Thank you for your deposit of $" + deposit + " into account " + depAccount);
 								//Make deposit
 								break;
 							case 4:
 								//Make withdrawal
 								System.out.println("Please specify withdrawal amount & account:");
+								System.out.println("Withdrawal amount:");
+								int withdrawal = in.nextInt();
+								System.out.println("Account:");
+								
 
 								break;
 							case 5:
